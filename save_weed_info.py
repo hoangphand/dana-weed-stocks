@@ -85,7 +85,7 @@ def write_file_to_disc(tr_sym, date_str=None):
 # write_file_to_disc('HEXO.TO')
 
 SQL = '''
-select symbol from symbol
+select symbol from Symbol
 '''
 cur.execute(SQL)
 if cur.rowcount > 0:
