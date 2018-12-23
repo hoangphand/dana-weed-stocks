@@ -100,7 +100,7 @@ for fname in files: # 'file' is a builtin type, 'name' is a less-ambiguous varia
     # print('type(symbol)', type(symbol), 'symbol', symbol)
     # cur.execute("INSERT IGNORE INTO symbol (symbol) VALUE (%s) ", (symbol,))
     # print('here')
-    cur.execute('SELECT id FROM symbol WHERE Symbol = (%s) ', (symbol,))
+    cur.execute('SELECT id FROM Symbol WHERE symbol = (%s) ', (symbol,))
     symbol_id = cur.fetchone()[0]
     # print(json_data['Time Series (5min)'])
     for period, values in json_data['Time Series (5min)'].items():
