@@ -76,3 +76,7 @@ add primary key(symbol_id, time_stamp);
 
 alter table symbol_prices.Symbol_five_mins
 drop column five_min_start_id;
+
+update symbol_prices.Symbol_five_mins
+set symbol_prices.Symbol_five_mins.symbol_id = 9
+where symbol_prices.Symbol_five_mins.symbol_id = 1403;
