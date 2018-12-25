@@ -110,7 +110,7 @@ for fname in files: # 'file' is a builtin type, 'name' is a less-ambiguous varia
         low_val=values['3. low']
         close_val=values['4. close']
         volume=values['5. volume']
-        tmp=datetime.datetime.strptime(period, "%Y-%m-%d %H:%M:%S")
+        tmp=datetime.strptime(period, "%Y-%m-%d %H:%M:%S")
         per_unix=calendar.timegm(tmp.utctimetuple())
         # print(tmp, per_unix)
         # cur.execute('''INSERT IGNORE INTO Five_mins (five_min_start)
