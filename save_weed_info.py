@@ -49,7 +49,8 @@ def write_file_to_disc(tr_sym, date_str=None):
     print(tr_sym, 'last updated ',  last_refreshed) # 'today at 15:55:00 or 16:00:00 or this is SCU.TO')
     # with open('/home/acer/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'_evening.ipynb', 'w') as outfile:
     # with open('/home/ec2-user/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
-    with open('data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
+    with open('/home/ubuntu/dana-weed-stocks/data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
+    # with open('data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
         json.dump(info, outfile)
     # else:
     #   print(tr_sym, 'wasn\'t updated today at  15:55:00 or 16:00:00') # Improve this line. What if the symbol doesn't exist?
