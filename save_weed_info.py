@@ -19,15 +19,15 @@ def write_file_to_disc(tr_sym, date_str=None):
     if date_str==None:
         date_str=datetime.datetime.today().strftime('%Y-%m-%d')
     address='https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + tr_sym + '&interval=5min&apikey=JN5MZQ7WGALU73D2'
-    print('duh')
+    # print('duh')
     uh = urllib.request.urlopen(address)
-    print('duh2')
+    # print('duh2')
 
     data = uh.read()
     # print(data)
     info = json.loads(data.decode('utf-8'))
-    if tr_sym=='N.V':
-        print('type(info)', type(info), 'len(info)', len(info), 'info', info)
+    # if tr_sym=='N.V':
+        # print('type(info)', type(info), 'len(info)', len(info), 'info', info)
     if len(info)==1 and 'Error Message' in info and re.search('the parameter apikey is invalid or missin', info['Error Message']):
         print('API key: ' + tr_sym + ' invalid')
         return None
@@ -43,14 +43,15 @@ def write_file_to_disc(tr_sym, date_str=None):
             print('API key: ' + tr_sym + ' invalid')
             return None
 
-    last_refreshed=info['Meta Data']['3. Last Refreshed']
-    print(last_refreshed)
-    # if re.search(date_str, last_refreshed) : # and (re.search('16:00:00', last_refreshed) or re.search('15:55:00', last_refreshed) or tr_sym=='SCU.TO') :
-    print(tr_sym, 'last updated ',  last_refreshed) # 'today at 15:55:00 or 16:00:00 or this is SCU.TO')
-    # with open('/home/acer/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'_evening.ipynb', 'w') as outfile:
-    # with open('/home/ec2-user/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
-    with open('data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
-        json.dump(info, outfile)
+    if 'Meta Data' in info:
+        last_refreshed=info['Meta Data']['3. Last Refreshed']
+        print(last_refreshed)
+        # if re.search(date_str, last_refreshed) : # and (re.search('16:00:00', last_refreshed) or re.search('15:55:00', last_refreshed) or tr_sym=='SCU.TO') :
+        print(tr_sym, 'last updated ',  last_refreshed) # 'today at 15:55:00 or 16:00:00 or this is SCU.TO')
+        # with open('/home/acer/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'_evening.ipynb', 'w') as outfile:
+        # with open('/home/ec2-user/weed_stocks/get_quotes/data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
+        with open('data/' + tr_sym + '-' + date_str +'.ipynb', 'w') as outfile:
+            json.dump(info, outfile)
     # else:
     #   print(tr_sym, 'wasn\'t updated today at  15:55:00 or 16:00:00') # Improve this line. What if the symbol doesn't exist?
 # # write_file_to_disc('gsghsjd##')

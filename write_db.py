@@ -86,8 +86,8 @@ print('here')
 # 'Time Series (5min)': {'2018-10-15 16:00:00': {'1. open': '73.4000', '2. high': '73.8800', '3. low': '73.4000', '4. close': '73.8800', '5. volume': '195788'}, '2018-10-15 15:55:00
 # Each of the entries contains four floats and an integer
 
-# path = 'data/*.ipynb'
-path = '/home/ubuntu/dana-weed-stocks/data/*.ipynb'
+path = 'data/*.ipynb'
+# path = '/home/ubuntu/dana-weed-stocks/data/*.ipynb'
 # path = '/home/ec2-user/weed_stocks/get_quotes/data/*.ipynb'
 # path = '/home/acer/weed_stocks/get_quotes/data/*.ipynb'
 files = glob.glob(path)   
