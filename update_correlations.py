@@ -66,7 +66,7 @@ noOfIds = len(result)
 for symbol1 in range(0, noOfIds):
     for symbol2 in range(0, noOfIds):
         if symbol1 != symbol2:
-            print("pair (" + str(symbol1) + ", " + str(symbol2) + ")")
+            # print("pair (" + str(symbol1) + ", " + str(symbol2) + ")")
 
             query = '''
             SELECT * FROM 3_months_correlation
